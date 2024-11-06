@@ -2,7 +2,7 @@
 CREATE TABLE `Book` (
     `id` VARCHAR(191) NOT NULL,
     `name` VARCHAR(191) NOT NULL,
-    `year` DATETIME(3) NOT NULL,
+    `year` INTEGER NOT NULL,
     `author` VARCHAR(191) NOT NULL,
     `summary` VARCHAR(191) NOT NULL,
     `publisher` VARCHAR(191) NOT NULL,

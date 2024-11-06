@@ -18,10 +18,35 @@ const disconnectPrisma = async () => {
   await prisma.$disconnect();
 };
 
+// Get all book
 const getAllBook = async () => {
   try {
     const result = await prisma.book.findMany();
+    return result;
+  } catch (error) {
+    return handlePrismaError(error);
+  }
+};
 
+// Create a new book
+const createBook = async (data) => {
+  try {
+    const result = await prisma.book.create({
+      data: {
+        id: data.id,
+        name: data.name,
+        year: data.year,
+        author: data.author,
+        summary: data.summary,
+        publisher: data.publisher,
+        pageCount: data.pageCount,
+        readPage: data.readPage,
+        reading: data.reading,
+        finished: data.finished,
+        insertedAt: data.insertedAt,
+        updatedAt: data.updatedAt,
+      },
+    });
     return result;
   } catch (error) {
     return handlePrismaError(error);
@@ -31,5 +56,6 @@ const getAllBook = async () => {
 module.exports = {
   handlePrismaError,
   getAllBook,
+  createBook,
   disconnectPrisma,
 };

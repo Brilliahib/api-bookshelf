@@ -16,7 +16,7 @@ datasource db {
 model Book{
   id String @id @default(cuid())
   name String
-  year DateTime
+  year Int
   author String
   summary String
   publisher String
